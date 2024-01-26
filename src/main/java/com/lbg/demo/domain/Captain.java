@@ -6,13 +6,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Pikmin {
-
+public class Captain {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String colour;
-	private String power;
+	private String name;
+	private String planet;
 
 	public Integer getId() {
 		return id;
@@ -22,25 +21,25 @@ public class Pikmin {
 		this.id = id;
 	}
 
-	public String getColour() {
-		return colour;
+	public String getName() {
+		return name;
 	}
 
-	public void setColour(String colour) {
-		this.colour = colour;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getPower() {
-		return power;
+	public String getPlanet() {
+		return planet;
 	}
 
-	public void setPower(String power) {
-		this.power = power;
+	public void setPlanet(String planet) {
+		this.planet = planet;
 	}
 
 	@Override
 	public String toString() {
-		return "Pikmin [colour=" + colour + ", power=" + power + "]";
+		return "Captain [name=" + name + ", planet=" + planet + "]";
 	}
 
 }

@@ -12,38 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lbg.demo.domain.Pikmin;
-import com.lbg.demo.services.PikminService;
+import com.lbg.demo.domain.Captain;
+import com.lbg.demo.services.CaptainService;
 
 @RestController
-@RequestMapping("/pikmin")
-public class PikminController {
+@RequestMapping("/captain")
+public class CaptainController {
+	private CaptainService service;
 
-	private PikminService service;
-
-	public PikminController(PikminService service) {
+	public CaptainController(CaptainService service) {
 		super();
 		this.service = service;
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity<Pikmin> createPikmins(@RequestBody Pikmin newPikmins) {
-		return this.service.createPikmin(newPikmins);
+	public ResponseEntity<Captain> createCaptains(@RequestBody Captain newCaptains) {
+		return this.service.createCaptain(newCaptains);
 	}
 
 	@GetMapping("/get")
-	public List<Pikmin> getPikmin() {
-		return this.service.getPikmins();
+	public List<Captain> getCaptain() {
+		return this.service.getCaptains();
 	}
 
 	@GetMapping("/get/{id}")
-	public ResponseEntity<Pikmin> getPikmin(@PathVariable int id) {
-		return this.service.getPikmin(id);
+	public ResponseEntity<Captain> getCaptain(@PathVariable int id) {
+		return this.service.getCaptain(id);
 	}
 
 	@PatchMapping("/update/{id}")
-	public ResponseEntity<Pikmin> updatePikmin(@PathVariable int id, @RequestBody Pikmin newPikmin) {
-		return this.service.updatePikmin(id, newPikmin);
+	public ResponseEntity<Captain> updateCaptain(@PathVariable int id, @RequestBody Captain newCaptain) {
+		return this.service.updateCaptain(id, newCaptain);
 	}
 
 	@DeleteMapping("/remove/{id}")
